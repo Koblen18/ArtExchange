@@ -16,30 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `oeuvre`
+-- Table structure for table `panier`
 --
 
-DROP TABLE IF EXISTS `oeuvre`;
+DROP TABLE IF EXISTS `panier`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `oeuvre` (
-  `idoeuvre` int(11) NOT NULL,
-  `imgLink` varchar(200) DEFAULT NULL,
-  `imgSize` int(11) DEFAULT NULL,
-  `nomOeuvre` varchar(45) DEFAULT NULL,
-  `prixOeuvre` decimal(9,2) DEFAULT NULL,
-  PRIMARY KEY (`idoeuvre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `panier` (
+  `idpanier` int(11) NOT NULL AUTO_INCREMENT,
+  `idCompte` int(11) DEFAULT NULL,
+  `idOeuvre` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idpanier`),
+  KEY `compte_fk_idx` (`idCompte`),
+  KEY `oeuvre_fk_idx` (`idOeuvre`),
+  CONSTRAINT `compte_fk` FOREIGN KEY (`idCompte`) REFERENCES `compte` (`idcompte`),
+  CONSTRAINT `oeuvre_fk` FOREIGN KEY (`idOeuvre`) REFERENCES `oeuvre` (`idoeuvre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `oeuvre`
+-- Dumping data for table `panier`
 --
 
-LOCK TABLES `oeuvre` WRITE;
-/*!40000 ALTER TABLE `oeuvre` DISABLE KEYS */;
-INSERT INTO `oeuvre` VALUES (1,'test.jpg',2,'test',2.00),(2,'image.jpg',1,'mini',30.00),(3,'painture.jpg',3,'fresque',200.00);
-/*!40000 ALTER TABLE `oeuvre` ENABLE KEYS */;
+LOCK TABLES `panier` WRITE;
+/*!40000 ALTER TABLE `panier` DISABLE KEYS */;
+/*!40000 ALTER TABLE `panier` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-03 16:45:35
+-- Dump completed on 2018-10-03 16:45:36
