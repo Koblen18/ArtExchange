@@ -10,7 +10,7 @@
         <h3>BLOG POSTS</h3>
         <ul class="w3-ul">
           <li class="w3-padding-16 w3-hover-black">
-            <img src="imagesSite/IMG_E4710.PNG" class="w3-left w3-margin-right" style="width:50px">
+            <img src="imagesSite/IMG_4852.PNG" class="w3-left w3-margin-right" style="width:50px">
             <span class="w3-large">Lorem</span><br>
             <span>Sed mattis nunc</span>
           </li>
@@ -26,10 +26,9 @@
         <h3>POPULAR TAGS</h3>
         <p>
           <span class="w3-tag w3-black w3-margin-bottom">Galerie</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Paysages</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Arts Abstrait</span>
-          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Sculpture</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">DIY</span>
-          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Family</span>
-          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Shopping</span>
-          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Games</span>
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Sculpture</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">DESSIN</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Peinture</span>
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Stp</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Family</span>
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Clothing</span>
         </p>
       </div>
     </div>
