@@ -10,7 +10,7 @@
         <h3>BLOG POSTS</h3>
         <ul class="w3-ul">
           <li class="w3-padding-16 w3-hover-black">
-            <img src="/imagesSite/IMG_E4710" class="w3-left w3-margin-right" style="width:50px">
+            <img src="imagesSite/IMG_E4710.PNG" class="w3-left w3-margin-right" style="width:50px">
             <span class="w3-large">Lorem</span><br>
             <span>Sed mattis nunc</span>
           </li>

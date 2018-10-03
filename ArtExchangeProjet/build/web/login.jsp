@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body class="w3-third">
         <form action="login" method="get">
             <input type="text" name="nom" placeholder="Nom" required autofocus>
             <input type="password" name="password" placeholder="Password" required>
