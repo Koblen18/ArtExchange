@@ -5,10 +5,11 @@
  */
 package com.controller;
 
-import com.action.RemplirEtudiant;
-import com.entities.Etudiant;
+import com.action.CompteAction;
+import com.entities.Compte;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Salahudine
+ * @author usager
  */
 public class Login extends HttpServlet {
 
@@ -31,23 +32,25 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         response.setContentType("text/html");
         boolean connexion = false;
-        PrintWriter out =  response.getWriter();
+        PrintWriter out = response.getWriter();
         String nom = request.getParameter("nom");
         System.out.println("nomsaisi " + nom);
         String password = request.getParameter("password");
         String sauvegarde = request.getParameter("sauvegarde");
-        if (RemplirEtudiant.listEtudiant!=null) {
-            for (Etudiant etud : RemplirEtudiant.listEtudiant) {
-                if (etud!=null) {
-                    if (nom.equals(etud.getNom()) && password.equals(etud.getPassword()) ) {
+        ArrayList<Compte> listEtudiant = CompteAction.afficherEtudiant();
+        if (listEtudiant != null) {
+            for (Compte etud : listEtudiant) {
+                if (etud != null) {
+                    if (nom.equals(etud.getUsername()) && password.equals(etud.getPassword())) {
                         connexion = true;
                         HttpSession session = request.getSession(true);
                         session.setAttribute("nom", nom);
 
-                        if(sauvegarde != null){
+                        if (sauvegarde != null) {
                             if (sauvegarde.equals("yes")) {
                                 Cookie monCookie = new Cookie("nom", nom);
                                 Cookie passwordCookie = new Cookie("password", password);
@@ -64,13 +67,13 @@ public class Login extends HttpServlet {
             }
 
         } else {
-            out.println("La liste des étudiants est vide,cliquez d'abord sur menu etudiants pour remplir la liste");
+            out.println("La liste des comptes est vide,pas de comptes enregistres dans la bd");
         }
 
         if (!connexion) {
             out.println("<center><b><font color=red>" + "Le nom d'utilisateur ou mot de passe invalide" + "</font><b></center>");
             request.getRequestDispatcher("login.jsp").include(request, response);
-            //out.println("<b><font color=red>" + "Le nom d'utilisateur ou mot de passe invalide" + "</font><b>");
+//out.println("<b><font color=red>" + "Le nom d'utilisateur ou mot de passe invalide" + "</font><b>");
         }
     }
 

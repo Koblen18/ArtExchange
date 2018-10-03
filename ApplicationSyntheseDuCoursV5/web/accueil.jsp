@@ -19,7 +19,7 @@
 </head>
 <body>
 <jsp:include page="menu.jsp"/>
-  <%@include file="homePage.html"%>
+  <%@include file="homePage.jsp"%>
 </body>
 <jsp:include page="footer.jsp"/>
 </html>
