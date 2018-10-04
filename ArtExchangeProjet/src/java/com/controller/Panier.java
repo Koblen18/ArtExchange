@@ -5,13 +5,10 @@
  */
 package com.controller;
 
-import com.action.CompteAction;
-import com.entities.Compte;
+import com.action.PanierAction;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author usager
  */
-public class Login extends HttpServlet {
+public class Panier extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,48 +31,20 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");
-        boolean connexion = false;
-        PrintWriter out = response.getWriter();
-        String nom = request.getParameter("nom");
-        System.out.println("nomsaisi " + nom);
-        String password = request.getParameter("password");
-        String sauvegarde = request.getParameter("sauvegarde");
-        ArrayList<Compte> listCompte = CompteAction.afficherEtudiant();
-        if (listCompte != null) {
-            for (Compte comp : listCompte) {
-                if (comp != null) {
-                    if (nom.equals(comp.getUsername()) && password.equals(comp.getPassword())) {
-                        connexion = true;
-                        HttpSession session = request.getSession(true);
-                        session.setAttribute("nom", nom);
-                        session.setAttribute("id", comp.getId());
-
-                        if (sauvegarde != null) {
-                            if (sauvegarde.equals("yes")) {
-                                Cookie monCookie = new Cookie("nom", nom);
-                                Cookie passwordCookie = new Cookie("password", password);
-                                passwordCookie.setMaxAge(60 * 60);
-                                monCookie.setMaxAge(60 * 60);
-                                response.addCookie(monCookie);
-                                response.addCookie(passwordCookie);
-                            }
-                        }
-                        request.getRequestDispatcher("accueil.jsp").forward(request, response);
-
-                    }
-                }
+        response.setContentType("text/html;charset=UTF-8");
+        try {
+            String idFav = request.getParameter("supprimerFav");
+            HttpSession session = request.getSession(false);
+            int memberID = (Integer) session.getAttribute("id");
+            request.setAttribute("Panier", PanierAction.afficherPanierParId(memberID));
+            if (idFav != null) {
+                PanierAction.supprimerOeuvrePanier(memberID, Integer.parseInt(idFav));
             }
+        } catch (NullPointerException e) {
 
-        } else {
-            out.println("La liste des comptes est vide,pas de comptes enregistres dans la bd");
         }
 
-        if (!connexion) {
-            out.println("<center><b><font color=red>" + "Le nom d'utilisateur ou mot de passe invalide" + "</font><b></center>");
-            request.getRequestDispatcher("login.jsp").include(request, response);
-//out.println("<b><font color=red>" + "Le nom d'utilisateur ou mot de passe invalide" + "</font><b>");
-        }
+        request.getRequestDispatcher("MonPanier.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

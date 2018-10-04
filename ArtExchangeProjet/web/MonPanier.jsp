@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : 2018-09-29, 17:08:34
+    Document   : MonPanier
+    Created on : 2018-10-03, 21:55:14
     Author     : usager
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login Page</title>
+        <title>Mon Panier</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -25,29 +25,7 @@
 
             <!-- Push down content on small screens --> 
             <div class="w3-hide-large" style="margin-top:83px"></div>
-            <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
-                <div class="w3-content" style="max-width:600px">
-                    <h3 class="w3-center"><b>Login</b></h3>
-                    <p> </p>
-                    <form action="login" target="_blank">
-                        <div class="w3-section">
-                            <label>Nom</label>
-                            <input class="w3-input w3-border" type="text" name="nom" required>
-                        </div>
-                        <div class="w3-section">
-                            <label>Mot de passe</label>
-                            <input class="w3-input w3-border" type="text" name="password" required>
-                        </div>
-                        <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom">Sign In</button>
-                        <div class="w3-section">
-                            <label>Remember me</label>
-                            <input class="w3-input w3-border" type="checkbox" name="sauvegarde" value="yes">
-                        </div>
-
-
-                    </form>
-                </div>
-            </div>
+            <h1>Hello World!</h1>
         </div>
     </body>
     <jsp:include page="footer.jsp"/>
