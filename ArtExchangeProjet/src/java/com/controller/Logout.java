@@ -41,7 +41,7 @@ public class Logout extends HttpServlet {
             } else {
                 out.println("Fin de session ");
             }
-            request.getRequestDispatcher("index.jsp").include(request, response);
+            request.getRequestDispatcher("accueil").include(request, response);
 
         
         }

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnexionBD {
   //  Définir l’url de connexion avec le nom de la base donnée
-	private static String url = "jdbc:mysql://127.0.0.1:3306/artexchange?autoReconnect=true&useSSL=false&serverTimezone=UTC";
+	private static String url = "jdbc:mysql://127.0.0.1:3306/artexchange?autoReconnect=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
         //Les identifiants de connection de la bd
 	private static String user = "root";
 	private static String pwd = "root";

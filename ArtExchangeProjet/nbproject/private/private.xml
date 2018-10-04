@@ -3,18 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/manager/OeuvreManager.java</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/service/selectAllTest.java</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/action/CompteAction.java</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/service/ConnexionBD.java</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/controller/Login.java</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/web/accueil.jsp</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/entities/Compte.java</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/web/pagePrincipale.jsp</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/manager/CompteManager.java</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/action/OeuvreAction.java</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/controller/Accueil.java</file>
-            <file>file:/C:/Users/usager/Desktop/ArtExchangeProjet/src/java/com/entities/Oeuvres.java</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/web/footer.jsp</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/src/java/com/manager/PanierManager.java</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/web/pagePrincipale.jsp</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/src/java/com/controller/Logout.java</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/src/java/com/action/PanierAction.java</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/src/java/com/entities/Panier.java</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/src/java/com/entities/Oeuvres.java</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/web/login.jsp</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/web/menu.jsp</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/src/java/com/controller/Accueil.java</file>
+            <file>file:/C:/Users/usager/Documents/GitHubs/ArtExchange/ArtExchangeProjet/web/accueil.jsp</file>
         </group>
     </open-files>
 </project-private>
