@@ -3,34 +3,8 @@
 <%@page import ="com.controller.Accueil" %>  
 
 
-<!-- <h1>Hello World!</h1>
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Image</th>
-        <th>Taille</th>
-        <th>Nom</th>
-        <th>Prix</th>
-    </tr>
-<%
-    ArrayList<Oeuvres> listOeuvre = (ArrayList) request.getAttribute(Accueil.CLE_DONNEE);
-    if (listOeuvre != null) {
-        for (Oeuvres oeuvre : listOeuvre) {%>
-        <tr>
-            <td><%=oeuvre.getId()%></td>
-            <td><%=oeuvre.getImgLink()%></td>
-            <td><%=oeuvre.getImgSize()%></td>
-            <td><%=oeuvre.getNomOeuvre()%></td>
-            <td><%=oeuvre.getPrixOeuvre()%></td>
-        </tr>
-<%
-        }
 
-    }
-
-%>
-    </table> -->
 
 
 <!-- !PAGE CONTENT! -->
@@ -41,6 +15,17 @@
 
     <!-- Photo grid -->
     <div class="w3-row">
+<%
+    ArrayList<Oeuvres> listOeuvre = (ArrayList) request.getAttribute(Accueil.CLE_DONNEE);
+    if (listOeuvre != null) {
+        for (Oeuvres oeuvre : listOeuvre) {
+            
+
+%>
+
+<% }
+    }
+%>
         <div class="w3-third">
             <img src="imagesSite/IMG_4992.PNG" style="width:100%" onclick="onClick(this)" alt="A boy surrounded by beautiful nature">
             <img src="imagesSite/IMG_4634.PNG" style="width:100%" onclick="onClick(this)" alt="What a beautiful scenery this sunset">
@@ -81,6 +66,7 @@
         <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
             <img id="img01" class="w3-image">
             <p id="caption"></p>
+            <button onclick="window.location.href='panier'">Ajouter au panier</button>
         </div>
     </div>
 </div>

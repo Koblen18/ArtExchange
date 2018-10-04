@@ -12,14 +12,14 @@ package com.entities;
 public class Oeuvres {
     private int id;
     private String imgLink;
-    private int imgSize;
+    private String descriptionOeuvre;
     private String nomOeuvre;
     private double prixOeuvre;
 
-    public Oeuvres(int id, String imgLink, int imgSize, String nomOeuvre, double prixOeuvre) {
+    public Oeuvres(int id, String imgLink, String descriptionOeuvre, String nomOeuvre, double prixOeuvre) {
         this.id = id;
         this.imgLink = imgLink;
-        this.imgSize = imgSize;
+        this.descriptionOeuvre = descriptionOeuvre;
         this.nomOeuvre = nomOeuvre;
         this.prixOeuvre = prixOeuvre;
     }
@@ -44,12 +44,12 @@ public class Oeuvres {
         this.imgLink = imgLink;
     }
 
-    public int getImgSize() {
-        return imgSize;
+    public String getDescriptionOeuvre() {
+        return descriptionOeuvre;
     }
 
-    public void setImgSize(int imgSize) {
-        this.imgSize = imgSize;
+    public void setDescriptionOeuvre(String descriptionOeuvre) {
+        this.descriptionOeuvre = descriptionOeuvre;
     }
 
     public String getNomOeuvre() {

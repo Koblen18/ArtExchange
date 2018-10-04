@@ -29,7 +29,7 @@ public class OeuvreManager {
                 Oeuvres oeu = new Oeuvres();
                 oeu.setId(result.getInt("idOeuvre"));
                 oeu.setImgLink(result.getString("imgLink"));
-                oeu.setImgSize(result.getInt("imgSize"));
+                oeu.setDescriptionOeuvre(result.getString("descriptionOeuvre"));
                 oeu.setNomOeuvre(result.getString("nomOeuvre"));
                 oeu.setPrixOeuvre(result.getDouble("prixOeuvre"));
                 retour.add(oeu);
