@@ -19,4 +19,9 @@ public class OeuvreAction {
         ArrayList<Oeuvres> listOeuvre = OeuvreManager.getAll();
         return listOeuvre;
     }
+    
+    public static Oeuvres afficherOeuvreParID(int id){
+        Oeuvres oeuv = OeuvreManager.getById(id);
+        return oeuv;
+    }
 }

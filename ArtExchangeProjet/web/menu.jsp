@@ -3,7 +3,7 @@
     <h1 class="w3-padding-64 w3-center"><strong>ART <br> EXCHANGE</strong></h1>
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
     <a href="accueil" onclick="w3_close()" class="w3-bar-item w3-button">ACCUEIL</a> 
-    <a href="panier" onclick="w3_close()" class="w3-bar-item w3-button">MON PANIER</a> 
+    <a href="afficherpanier" onclick="w3_close()" class="w3-bar-item w3-button">MON PANIER</a> 
     <%
         Integer s = (Integer) request.getSession(false).getAttribute("id");
         if (s!=null) {

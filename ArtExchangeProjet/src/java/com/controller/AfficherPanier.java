@@ -6,6 +6,7 @@
 package com.controller;
 
 import com.action.PanierAction;
+import com.entities.Panier;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author usager
  */
-public class Panier extends HttpServlet {
+public class AfficherPanier extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,10 +33,18 @@ public class Panier extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
         try {
             String idFav = request.getParameter("supprimerFav");
+            String idOeuv = request.getParameter("idOeuvre");
             HttpSession session = request.getSession(false);
             int memberID = (Integer) session.getAttribute("id");
+            if (idOeuv != null) {
+                Panier o1 = new Panier();
+                o1.setIdUtilisateur(memberID);
+                o1.setIdoeuvre(Integer.parseInt(idOeuv));
+                PanierAction.ajouterPanier(o1);
+            }
             request.setAttribute("Panier", PanierAction.afficherPanierParId(memberID));
             if (idFav != null) {
                 PanierAction.supprimerOeuvrePanier(memberID, Integer.parseInt(idFav));

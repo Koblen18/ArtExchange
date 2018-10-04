@@ -43,6 +43,8 @@
             document.getElementById("modal01").style.display = "block";
             var captionText = document.getElementById("caption");
             captionText.innerHTML = element.alt;
+            var idOeuvre = document.getElementById("link");
+            idOeuvre.href = "afficherpanier?idOeuvre="+element.dataset.oeuvreId;
         }
 
     </script>

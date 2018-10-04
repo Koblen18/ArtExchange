@@ -61,7 +61,7 @@ public class Login extends HttpServlet {
                                 response.addCookie(passwordCookie);
                             }
                         }
-                        request.getRequestDispatcher("accueil.jsp").forward(request, response);
+                        request.getRequestDispatcher("accueil").forward(request, response);
 
                     }
                 }

@@ -4,6 +4,11 @@
     Author     : usager
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="com.action.OeuvreAction"%>
+<%@page import="com.entities.Oeuvres"%>
+<%@page import="com.entities.Panier"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,6 +30,26 @@
 
             <!-- Push down content on small screens --> 
             <div class="w3-hide-large" style="margin-top:83px"></div>
+            <%
+                ArrayList<Panier> panierListe = (ArrayList<Panier>) request.getAttribute("Panier");
+                if (panierListe != null) {
+                    Iterator<Panier> panIte = panierListe.iterator();
+                    for (int i = 0; i < panierListe.size() / 3; i++) {
+                        int j = 0;
+            %>
+            <div class="w3-third">
+                <%  while (panIte.hasNext() && (j != 3)) {
+                        j++;
+                        Panier pan = panIte.next();
+                        Oeuvres o1 = OeuvreAction.afficherOeuvreParID(pan.getIdoeuvre());
+                %>
+                <img src="<%=o1.getImgLink()%>" style="width:100%" onclick="onClick(this)" alt="<%=o1.getDescriptionOeuvre()%>">
+                <% }%>
+            </div>
+            <%
+                    }
+                }
+            %>
             <h1>Hello World!</h1>
         </div>
     </body>

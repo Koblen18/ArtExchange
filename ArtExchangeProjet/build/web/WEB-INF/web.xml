@@ -16,8 +16,8 @@
         <servlet-class>com.controller.Logout</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Panier</servlet-name>
-        <servlet-class>com.controller.Panier</servlet-class>
+        <servlet-name>AfficherPanier</servlet-name>
+        <servlet-class>com.controller.AfficherPanier</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
@@ -32,8 +32,8 @@
         <url-pattern>/accueil</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Panier</servlet-name>
-        <url-pattern>/panier</url-pattern>
+        <servlet-name>AfficherPanier</servlet-name>
+        <url-pattern>/afficherpanier</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

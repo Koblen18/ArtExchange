@@ -1,3 +1,4 @@
+<%@page import="java.util.Iterator"%>
 <%@page import ="com.entities.Oeuvres" %>
 <%@page import ="java.util.ArrayList" %>
 <%@page import ="com.controller.Accueil" %>  
@@ -15,18 +16,28 @@
 
     <!-- Photo grid -->
     <div class="w3-row">
-<%
-    ArrayList<Oeuvres> listOeuvre = (ArrayList) request.getAttribute(Accueil.CLE_DONNEE);
-    if (listOeuvre != null) {
-        for (Oeuvres oeuvre : listOeuvre) {
-            
+        <%
+            ArrayList<Oeuvres> listOeuvre = (ArrayList) request.getAttribute(Accueil.CLE_DONNEE);
+            if (listOeuvre != null) {
+                Iterator<Oeuvres> oeuv = listOeuvre.iterator();
+                for (int i = 0; i < listOeuvre.size() / 3; i++) {
+                    int j = 0;
 
-%>
-
-<% }
-    }
-%>
+        %>
         <div class="w3-third">
+            <%                while (oeuv.hasNext() && (j != 3)) {
+                    j++;
+                    Oeuvres o1 = oeuv.next();
+            %>
+            <img src="<%=o1.getImgLink()%>" style="width:100%" onclick="onClick(this)" alt="<%=o1.getDescriptionOeuvre()%>" data-oeuvre-id="<%=o1.getId()%>">
+            <% }%>
+        </div>
+        <%
+                }
+            }
+        %>
+
+        <!--<div class="w3-third">
             <img src="imagesSite/IMG_4992.PNG" style="width:100%" onclick="onClick(this)" alt="A boy surrounded by beautiful nature">
             <img src="imagesSite/IMG_4634.PNG" style="width:100%" onclick="onClick(this)" alt="What a beautiful scenery this sunset">
             <img src="imagesSite/IMG_4636.PNG" style="width:100%" onclick="onClick(this)" alt="The Beach. Me. Alone. Beautiful">
@@ -45,7 +56,7 @@
             <img src="imagesSite/IMG_4647.PNG" style="width:100%" onclick="onClick(this)" alt="What a beautiful day!">
             <img src="imagesSite/IMG_4993.PNG" style="width:100%" onclick="onClick(this)" alt="What a beautiful day!">
         </div>
-    </div>
+    </div>-->
 
 
     <!-- Pagination -->
@@ -66,7 +77,7 @@
         <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
             <img id="img01" class="w3-image">
             <p id="caption"></p>
-            <button onclick="window.location.href='panier'">Ajouter au panier</button>
+            <a id="link">Ajouter au panier</a>
         </div>
     </div>
 </div>
