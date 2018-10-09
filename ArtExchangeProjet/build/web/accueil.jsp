@@ -44,7 +44,7 @@
             var captionText = document.getElementById("caption");
             captionText.innerHTML = element.alt;
             var idOeuvre = document.getElementById("link");
-            idOeuvre.href = "afficherpanier?idOeuvre="+element.dataset.oeuvreId;
+            idOeuvre.href = "ajouterpanier?idOeuvre="+element.dataset.oeuvreId;
         }
 
     </script>

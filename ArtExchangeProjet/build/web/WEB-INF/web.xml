@@ -16,8 +16,12 @@
         <servlet-class>com.controller.Logout</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AfficherPanier</servlet-name>
-        <servlet-class>com.controller.AfficherPanier</servlet-class>
+        <servlet-name>AjouterPanier</servlet-name>
+        <servlet-class>com.controller.AjouterPanier</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Acheter</servlet-name>
+        <servlet-class>com.controller.Acheter</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
@@ -32,8 +36,12 @@
         <url-pattern>/accueil</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AfficherPanier</servlet-name>
-        <url-pattern>/afficherpanier</url-pattern>
+        <servlet-name>AjouterPanier</servlet-name>
+        <url-pattern>/ajouterpanier</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Acheter</servlet-name>
+        <url-pattern>/acheter</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

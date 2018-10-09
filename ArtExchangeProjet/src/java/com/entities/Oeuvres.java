@@ -5,11 +5,18 @@
  */
 package com.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * @author usager
  */
+@Entity
 public class Oeuvres {
+    @Id
+    @GeneratedValue
     private int id;
     private String imgLink;
     private String descriptionOeuvre;
@@ -67,5 +74,11 @@ public class Oeuvres {
     public void setPrixOeuvre(double prixOeuvre) {
         this.prixOeuvre = prixOeuvre;
     }
+
+    @Override
+    public String toString() {
+        return "Oeuvres{" + "id=" + id + ", imgLink=" + imgLink + ", descriptionOeuvre=" + descriptionOeuvre + ", nomOeuvre=" + nomOeuvre + ", prixOeuvre=" + prixOeuvre + '}';
+    }
+    
     
 }

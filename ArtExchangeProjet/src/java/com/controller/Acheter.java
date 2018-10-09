@@ -5,10 +5,11 @@
  */
 package com.controller;
 
-import com.action.PanierAction;
 import com.entities.Panier;
+import com.util.GestionMail;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author usager
  */
-public class AfficherPanier extends HttpServlet {
+public class Acheter extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,27 +34,20 @@ public class AfficherPanier extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        try {
-            String idFav = request.getParameter("supprimerFav");
-            String idOeuv = request.getParameter("idOeuvre");
-            HttpSession session = request.getSession(false);
-            int memberID = (Integer) session.getAttribute("id");
-            if (idOeuv != null) {
-                Panier o1 = new Panier();
-                o1.setIdUtilisateur(memberID);
-                o1.setIdoeuvre(Integer.parseInt(idOeuv));
-                PanierAction.ajouterPanier(o1);
-            }
-            request.setAttribute("Panier", PanierAction.afficherPanierParId(memberID));
-            if (idFav != null) {
-                PanierAction.supprimerOeuvrePanier(memberID, Integer.parseInt(idFav));
-            }
-        } catch (NullPointerException e) {
-
+        String to = request.getParameter("email");
+        String total = request.getParameter("total");
+        HttpSession session = request.getSession();
+        ArrayList<Panier> paniers = (ArrayList<Panier>)session.getAttribute("listOe");
+        String panierString="";
+        for (Panier panier : paniers) {
+            panierString+= panier.toString()+"<br/>";
         }
+        String msg = "Votre Facture:<br/>"+panierString+"pour un total de: "+total+"$";
+        String sujet = "Achat d'art exchange";
 
-        request.getRequestDispatcher("MonPanier.jsp").forward(request, response);
+        GestionMail.sendEmail(msg, to, sujet);
+        session.removeAttribute("listOe");
+        request.getRequestDispatcher("accueil").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

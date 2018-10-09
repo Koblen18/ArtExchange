@@ -19,7 +19,7 @@ public class selectAllTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String sql = "select * from compte";
+        String sql = "select * from oeuvre where idoeuvre=1";
 		
 		try {
 			PreparedStatement ps= ConnexionBD.getConnection().prepareStatement(sql);
@@ -30,7 +30,7 @@ public class selectAllTest {
 			       if (result.isBeforeFirst()) {
                                    //La méthode next() pour se déplacer sur le suivant
 					 while (result.next()) {
-						System.out.println(result.getString("usernameCompte"));
+						System.out.println(result.getString("nomOeuvre"));
 					}
 				}
 		} catch (SQLException e) {

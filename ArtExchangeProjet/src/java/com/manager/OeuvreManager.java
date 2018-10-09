@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class OeuvreManager {
 
     private static String queuryGetAllOeuvre = "select * from oeuvre";
-    private static final String QUERY_GET_BY_ID_OEUVRE = "select * from oeuvre where idOeuvre=?";
+    private static final String QUERY_GET_BY_ID_OEUVRE = "select * from oeuvre where idoeuvre=?";
     public static ArrayList<Oeuvres> getAll() {
         ArrayList<Oeuvres> retour = null;
         try {
@@ -51,7 +51,7 @@ public class OeuvreManager {
             ResultSet result = ps.executeQuery();
             while (result.next()) {
                 retour = new Oeuvres();
-                retour.setId(result.getInt("id"));
+                retour.setId(result.getInt("idoeuvre"));
                 retour.setImgLink(result.getString("imgLink"));
                 retour.setDescriptionOeuvre(result.getString("descriptionOeuvre"));
                 retour.setNomOeuvre(result.getString("nomOeuvre"));

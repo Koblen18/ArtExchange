@@ -4,8 +4,6 @@
     Author     : usager
 --%>
 
-<%@page import="java.util.Iterator"%>
-<%@page import="com.action.OeuvreAction"%>
 <%@page import="com.entities.Oeuvres"%>
 <%@page import="com.entities.Panier"%>
 <%@page import="java.util.ArrayList"%>
@@ -22,35 +20,61 @@
             body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             .w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
             .w3-third img:hover{opacity: 1}
+            img{
+                max-width:450px;
+                max-height:450px;
+            }
         </style>
     </head>
     <body>
         <jsp:include page="menu.jsp"/>
         <div class="w3-main" style="margin-left:300px">
 
-            <!-- Push down content on small screens --> 
-            <div class="w3-hide-large" style="margin-top:83px"></div>
-            <%
-                ArrayList<Panier> panierListe = (ArrayList<Panier>) request.getAttribute("Panier");
-                if (panierListe != null) {
-                    Iterator<Panier> panIte = panierListe.iterator();
-                    for (int i = 0; i < panierListe.size() / 3; i++) {
-                        int j = 0;
-            %>
-            <div class="w3-third">
-                <%  while (panIte.hasNext() && (j != 3)) {
-                        j++;
-                        Panier pan = panIte.next();
-                        Oeuvres o1 = OeuvreAction.afficherOeuvreParID(pan.getIdoeuvre());
-                %>
-                <img src="<%=o1.getImgLink()%>" style="width:100%" onclick="onClick(this)" alt="<%=o1.getDescriptionOeuvre()%>">
-                <% }%>
+            <h1>Votre Panier d'achat</h1>
+            <table border="1" width="60%" style="margin: 0 auto;text-align:center">
+                <thead>
+                    <tr>
+                        <th>Quantité</th>
+                        <th>NomOeuvre</th>
+                        <th>DescriptionOeuvre</th>
+                        <th>Prix</th>
+                        <th>Photo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        double total = 0;
+                        HttpSession sessio = request.getSession();
+                        ArrayList<Panier> paniers = (ArrayList<Panier>) sessio.getAttribute("listOe");
+                        if (paniers != null) {
+                            for (Panier p : paniers) {
+                                total += p.getQuantite() * p.getOeuvre().getPrixOeuvre();
+
+                    %>
+                    <tr>
+                        <td><%= p.getQuantite()%></td>
+                        <td><%= p.getOeuvre().getNomOeuvre()%></td>
+                        <td><%= p.getOeuvre().getDescriptionOeuvre()%></td>
+                        <td><%= p.getOeuvre().getPrixOeuvre()%></td>
+                        <td><img src=<%=p.getOeuvre().getImgLink()%>></td>
+                    </tr>
+                    <%    }
+                        }%>
+                </tbody>
+            </table>
+            <h2 style="text-align: center;">Total: <%=total%></h2>
+            <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+                <div class="w3-content" style="max-width:600px">
+                    <form action="acheter" style="text-align: center;">
+                        <div class="w3-section">
+                            <label>Courriel</label>
+                            <input class="w3-input w3-border" type="text" name="email" required>
+                        </div>
+                        <input type="hidden" name="total" value="<%=total%>" >
+                        <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom">Acheter</button>
+                    </form>
+                </div>
             </div>
-            <%
-                    }
-                }
-            %>
-            <h1>Hello World!</h1>
         </div>
     </body>
     <jsp:include page="footer.jsp"/>
@@ -65,14 +89,5 @@
             document.getElementById("mySidebar").style.display = "none";
             document.getElementById("myOverlay").style.display = "none";
         }
-
-// Modal Image Gallery
-        function onClick(element) {
-            document.getElementById("img01").src = element.src;
-            document.getElementById("modal01").style.display = "block";
-            var captionText = document.getElementById("caption");
-            captionText.innerHTML = element.alt;
-        }
-
     </script>
 </html>

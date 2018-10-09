@@ -10,33 +10,38 @@ package com.entities;
  * @author usager
  */
 public class Panier {
-    private int idUtilisateur;
-    private int idoeuvre;
+    private Oeuvres oeuvre;
+    private int quantite;
 
     public Panier() {
     }
 
-    public Panier(int idUtilisateur, int idoeuvre) {
-        this.idUtilisateur = idUtilisateur;
-        this.idoeuvre = idoeuvre;
+    public Panier(Oeuvres oeuvre, int quantite) {
+        this.oeuvre = oeuvre;
+        this.quantite = quantite;
     }
 
-    public int getIdUtilisateur() {
-        return idUtilisateur;
+    public Oeuvres getOeuvre() {
+        return oeuvre;
     }
 
-    public void setIdUtilisateur(int idUtilisateur) {
-        this.idUtilisateur = idUtilisateur;
+    public void setOeuvre(Oeuvres oeuvre) {
+        this.oeuvre = oeuvre;
     }
 
-    public int getIdoeuvre() {
-        return idoeuvre;
+    public int getQuantite() {
+        return quantite;
     }
 
-    public void setIdoeuvre(int idoeuvre) {
-        this.idoeuvre = idoeuvre;
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
 
+    @Override
+    public String toString() {
+        return "Panier{" + "oeuvre=" + oeuvre + ", quantite=" + quantite + "}";
+    }
+    
     
     
 }

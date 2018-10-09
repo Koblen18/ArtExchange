@@ -29,7 +29,7 @@
                     j++;
                     Oeuvres o1 = oeuv.next();
             %>
-            <img src="<%=o1.getImgLink()%>" style="width:100%" onclick="onClick(this)" alt="<%=o1.getDescriptionOeuvre()%>" data-oeuvre-id="<%=o1.getId()%>">
+            <img src="<%=o1.getImgLink()%>" style="width:100%" onclick="onClick(this)" alt="<%=o1.getDescriptionOeuvre()%> prix:<%=o1.getPrixOeuvre()%>$" data-oeuvre-id="<%=o1.getId()%>">
             <% }%>
         </div>
         <%
